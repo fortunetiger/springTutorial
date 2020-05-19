@@ -14,21 +14,17 @@ import lombok.extern.log4j.Log4j;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
-public class SampleTest {
-	
-	@Setter(onMethod=@__({@Autowired}))
-	private Restaurant	restaurant;
-//	private Chef		chef;
+public class HotelTest {
+
+	@Setter(onMethod_ = { @Autowired })
+	private SampleHotel hotel;
 	
 	@Test
-	public void testExist(){
+	public void testExist() {
 		
-		assertNotNull(restaurant);
+		assertNotNull(hotel);
 		
-		log.info(restaurant);
-		log.info("------------");
-		
-		//call Restaurant object
-		log.info(restaurant.getChef());
+		log.info(hotel);
+		log.info(hotel.getChef());
 	}
 }
