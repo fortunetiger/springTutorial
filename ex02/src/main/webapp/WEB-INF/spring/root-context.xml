@@ -42,11 +42,16 @@
 	<!-- Bean resources package -->
 	<context:component-scan base-package="org.zerock.sample">
 	</context:component-scan>
-
+	
+	<context:component-scan base-package="org.zerock.service">
+	</context:component-scan>
+	
 	<bean id="SqlSessionFactoryBean"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	
 	<mybatis-spring:scan base-package="org.zerock.mapper"/>
+
+	
 </beans>
