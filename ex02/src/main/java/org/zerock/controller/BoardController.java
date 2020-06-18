@@ -19,6 +19,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BoardController {
 	
+@SuppressWarnings("unused")
 private static final Throwable RedirectAttributes = null;
 //	@Autowired
 	private BoardService service;
@@ -73,5 +74,14 @@ private static final Throwable RedirectAttributes = null;
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/board/list";
+	}
+	
+	@GetMapping({"/get", "/modify"})
+	public void get(@RequestParam("bno") Long bno, Model model) {
+		
+		log.info("/get");
+		model.addAttribute("board", service.get(bno));
+		
+		// 요청에 따라 get.jsp 또는 modify.jsp로 이동
 	}
 }
